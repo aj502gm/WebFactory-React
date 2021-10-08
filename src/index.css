@@ -34,3 +34,6 @@ label{
 .btnSection{
   align-items: center; justify-content: center;
 }
+.texto{
+  width: 95%; max-width: 95%;height: 225px;
+}
