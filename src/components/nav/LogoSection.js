@@ -1,7 +1,7 @@
 export default function LogoSection(){
     return(
-        <li class="nav-item">
-            <img src= "../media/computer.png" class = "m-2" />
+        <li className="nav-item">
+            <img src= "../media/computer.png" className = "m-2" />
         </li>
     )
 }

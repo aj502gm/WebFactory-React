@@ -6,8 +6,31 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+input[type="text"], .texto{
+  background: #1D1E22;
+  color: white;
+}
+h5{
+  color: grey;
+}
+.wrap{
+  width:33%;
+  height: 300px;
+}
+.outputBox >#outputTxt {
+  width: 100%;
+  height: 500px;
+  overflow: scroll;
+}
+.checkBox{
+  padding: 15px;
+  margin-top:30px;
+  margin-right: 12.5px;
+  margin-left: 12.5px;
+}
+label{
+  color: #198754;
+}
+.btnSection{
+  align-items: center; justify-content: center;
 }

@@ -1,8 +1,10 @@
 import LogoSection from "./LogoSection";
+import ButtonSection from "./buttonSection/index";
 export default function Nav(){
     return(
-        <nav class="navbar navbar-dark bg-dark">
+        <nav className="navbar navbar-dark bg-dark">
             <LogoSection />
+            <ButtonSection></ButtonSection>
         </nav>
     )
 }
