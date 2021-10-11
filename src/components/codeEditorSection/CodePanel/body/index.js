@@ -1,7 +1,7 @@
-export default function Body(){
+export default function Body({txtAreaId}){
     return(
-        <div class = "">
-            <textarea className = "m-2 texto"></textarea>
+        <div className = "">
+            <textarea id = {txtAreaId} className = "m-2 texto"></textarea>
         </div>
     )
 }
