@@ -18,15 +18,13 @@ export const TxtDataProvider = (props) =>{
     const [cssDataTemplate, setCssData] = useState(`<style type="text/css"></style>`);
     const [jsDataTemplate, setJsData] = useState(`<script></script>`);
     const [bdDataTemplate, setBdDataTemplate] = useState(`<body><script></script></body>`);
-    useEffect(() => {
-        setHtmlData('SIRVE SIRVE');
-    }, []);
+   
     const prueba = () => {
         console.log("Funciona funciona");
         return "exito";
     }
     return(
-        <txtDataCT.Provider value = {{htmlDataTemplate, cssDataTemplate, jsDataTemplate}}>
+        <txtDataCT.Provider value = {{htmlDataTemplate, cssDataTemplate, jsDataTemplate, bdDataTemplate, setHtmlData, setCssData, setJsData, setBdDataTemplate}}>
             {props.children}
         </txtDataCT.Provider>
     )

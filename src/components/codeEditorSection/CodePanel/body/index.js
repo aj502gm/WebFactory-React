@@ -1,16 +1,33 @@
 import { txtDataCT } from '../../../../context/txtAreaData/TxtDataCT';
 import { useState } from 'react';
-import {useContext, useEffect } from "react";
+import React,{useContext, useEffect, useRef } from "react";
 export default function Body({txtAreaId}){
     const [coding, setCoding] = useState();
-    const {htmlDataTemplate,cssDataTemplate} = useContext(txtDataCT);
-    // useEffect(() => {
-    //     console.log((this.id === 'htmlTxt')? htmlDataTemplate : cssDataTemplate);
-    // },[])
-    console.log(htmlDataTemplate);
+    const {htmlDataTemplate, cssDataTemplate, jsDataTemplate, bdDataTemplate, setHtmlData, setCssData, setJsData, setBdDataTemplate} = useContext(txtDataCT);
+    // const isInitialMount = react.useRef(true);
+    
+    useEffect(() => {
+        let tempHtml = htmlDataTemplate;
+        if(txtAreaId === 'htmlTxt'){
+            tempHtml = tempHtml.replace(bdDataTemplate, `<body>${(coding === undefined)?'':coding}${jsDataTemplate}</body>`);
+            setBdDataTemplate(`<body>${(coding === undefined)?'':coding}${jsDataTemplate}</body>`);
+            setHtmlData(tempHtml);
+        }else if(txtAreaId === 'cssTxt'){
+            tempHtml = tempHtml.replace(cssDataTemplate, `<style type="text/css">${(coding === undefined)?'':coding}</style>`);
+            setCssData(`<style type="text/css">${(coding === undefined)?'':coding}</style>`);
+            setHtmlData(tempHtml);  
+            console.log(htmlDataTemplate);
+        }else{
+            tempHtml = tempHtml.replace(jsDataTemplate, `<script>${(coding === undefined)?'':coding}</script>`);
+            setJsData(`<script>${(coding === undefined)?'':coding}</script>`);
+            setHtmlData(tempHtml);
+            console.log(htmlDataTemplate);
+        }
+    });
+   /// console.log(htmlDataTemplate);
     return(
         <div className = "">
-            <textarea value = {coding} onChange= {({target : {value}}) => setCoding(value)} id = {txtAreaId} className = "m-2 texto"></textarea>
+            <textarea value = {coding} onChange= {({target : {value}}) => {console.log('act');setCoding(value)}} id = {txtAreaId} className = "m-2 texto"></textarea>
         </div>
     )
 }
