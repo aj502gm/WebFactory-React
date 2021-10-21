@@ -18,13 +18,17 @@ export const TxtDataProvider = (props) =>{
     const [cssDataTemplate, setCssData] = useState(`<style type="text/css"></style>`);
     const [jsDataTemplate, setJsData] = useState(`<script></script>`);
     const [bdDataTemplate, setBdDataTemplate] = useState(`<body><script></script></body>`);
+
+    const [htmlCheckBox, setHtmlCheckBox] = useState(false);
+    const [cssCheckBox, setCssCheckBox] = useState(false);
+    const [jsCheckBox, setJsCheckBox] = useState(false);
    
     const prueba = () => {
         console.log("Funciona funciona");
         return "exito";
     }
     return(
-        <txtDataCT.Provider value = {{htmlDataTemplate, cssDataTemplate, jsDataTemplate, bdDataTemplate, setHtmlData, setCssData, setJsData, setBdDataTemplate}}>
+        <txtDataCT.Provider value = {{htmlDataTemplate, cssDataTemplate, jsDataTemplate, bdDataTemplate, setHtmlData, setCssData, setJsData, setBdDataTemplate,htmlCheckBox,setHtmlCheckBox,cssCheckBox,setCssCheckBox,jsCheckBox,setJsCheckBox}}>
             {props.children}
         </txtDataCT.Provider>
     )

@@ -1,10 +1,13 @@
-import CodePanel from "./CodePanel"
+import CodePanel from "./CodePanel";
+import { txtDataCT } from "../../context/txtAreaData/TxtDataCT";
+import { useContext } from "react";
 export default function CodeEditor(){
+    const {htmlCheckBox, cssCheckBox, jsCheckBox} = useContext(txtDataCT);
     return(
         <div className="bg-dark  border ligth-success border-2 d-flex" >
-            <CodePanel labelValue = "HTML" txtAreaId = "htmlTxt" idPanel = "htmlSelector" idMainPanel = "htmlDiv" btnClassStyle = "btn btn-outline-danger ms-2 mt-1"></CodePanel>
-            <CodePanel labelValue = "CSS" txtAreaId = "cssTxt" idPanel = "cssSelector" idMainPanel = "cssDiv" btnClassStyle = "btn btn-outline-primary ms-2 mt-1"></CodePanel>
-            <CodePanel labelValue = "JS" txtAreaId = "jsTxt" idPanel = "jsSelector" idMainPanel = "jsDiv" btnClassStyle = "btn btn-outline-warning ms-2 mt-1"></CodePanel>
+            {!htmlCheckBox? <CodePanel labelValue = "HTML" txtAreaId = "htmlTxt" idPanel = "htmlSelector" idMainPanel = "htmlDiv" btnClassStyle = "btn btn-outline-danger ms-2 mt-1"></CodePanel> : null}
+            {!cssCheckBox ?<CodePanel labelValue = "CSS" txtAreaId = "cssTxt" idPanel = "cssSelector" idMainPanel = "cssDiv" btnClassStyle = "btn btn-outline-primary ms-2 mt-1"></CodePanel> : null}
+            {!jsCheckBox? <CodePanel labelValue = "JS" txtAreaId = "jsTxt" idPanel = "jsSelector" idMainPanel = "jsDiv" btnClassStyle = "btn btn-outline-warning ms-2 mt-1"></CodePanel> : null}
         </div>
     )
 }
