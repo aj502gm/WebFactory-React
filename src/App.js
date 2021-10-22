@@ -4,7 +4,6 @@ import CodeEditor from './components/codeEditorSection/index';
 import Nav from "./components/nav/index";
 import OutPutTxt from "./components/outputSection/index";
 import {TxtDataProvider} from "./context/txtAreaData/TxtDataCT";
-import {CodePanelStateProvider} from "./context/codeSectionState/CodeSectionCT"
 function App() {
   return (
     <TxtDataProvider>
