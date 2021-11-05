@@ -5,7 +5,8 @@ import Nav from "./components/nav/index";
 import OutPutTxt from "./components/outputSection/index";
 import {TxtDataProvider} from "./context/txtAreaData/TxtDataCT";
 // var FileSaver = require('file-saver');
-let zip = require('jszip')();
+import FileSaver from 'file-saver';
+export let zip = require('jszip')();
 function App() {
   return (
     <TxtDataProvider>

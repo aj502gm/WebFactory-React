@@ -1,16 +1,21 @@
 import Buttons from "./Buttons";
 import { txtDataCT } from "../../../context/txtAreaData/TxtDataCT";
-// import zip from './../../../App';
+import {zip} from './../../../App';
+import fileSaver   from "file-saver";
+import { useContext } from "react";
 export default function ButtonSection(){
-   
-    // const saveProject = () => {
-    //     zip.file("hello.txt", "Wassup");
-    //     zip.generateAsync({type: "blob"}).then( (files) => saveAs(files, "myProject.zip")); //.zip
-    // }
+   const {htmlDataTemplate, jsDataTemplate, cssDataTemplate} = useContext(txtDataCT);
+    const saveProject = () => {
+        zip.file("index.html", htmlDataTemplate);
+        zip.file("styles.css", cssDataTemplate);
+        zip.file("app.js", jsDataTemplate);
+
+        zip.generateAsync({type: "blob"}).then( (files) => fileSaver.saveAs(files, "myProject.zip")); //.zip
+    }
     return(
         <>
             <div className = "d-flex">
-                <a href = "#" className="btn btn-outline-success p-2 m-3">Save project</a>
+                <button href = "#" className="btn btn-outline-success p-2 m-3" onClick = {saveProject}>Save project</button>
                 <Buttons></Buttons>
             </div>
         </>
