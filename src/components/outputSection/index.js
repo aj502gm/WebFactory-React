@@ -9,7 +9,7 @@ export default function OutPutTxt(){
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <style type="text/css"></style>
         </head>
-        <body><h1>hola</h1><script></script></body>
+        <body><h1>HOJFDSHFJSDAHFJDSHFJSDHAJFHDSAJF</h1><script></script></body>
     </html>;`
     //const [innertHtmlData, setInnerHtmlData] = useState({__html: htmlDataTemplate});
     // useEffect(() => {
@@ -21,7 +21,6 @@ export default function OutPutTxt(){
     // });
     return (
         <div className="outputBox border black-success border-5 m-1" id = "outDiv"  dangerouslySetInnerHTML = {{__html: htmlDataTemplate}}>
-           
         </div>
     )
 }
