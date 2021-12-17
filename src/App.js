@@ -11,9 +11,6 @@ import FileSaver from 'file-saver';
 export let zip = require('jszip')();
 function App() {
   const { htmlDataTemplate } = useContext(txtDataCT);
-  useEffect(()=>{
-   alert('montado'); 
-  }, [])
   return (
     <TxtDataProvider>
       <div className="App">
