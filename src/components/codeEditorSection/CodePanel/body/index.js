@@ -2,8 +2,8 @@ import { txtDataCT } from '../../../../context/txtAreaData/TxtDataCT';
 import { useState } from 'react';
 import React,{useContext, useEffect, useRef } from "react";
 export default function Body({txtAreaId}){
-    const [coding, setCoding] = useState();
-    const {htmlDataTemplate, cssDataTemplate, jsDataTemplate, bdDataTemplate, setHtmlData, setCssData, setJsData, setBdDataTemplate} = useContext(txtDataCT);
+    const [coding, setCoding] = useState("");
+    const {htmlDataTemplate, cssDataTemplate, jsDataTemplate, bdDataTemplate, setHtmlData, setCssData, setJsData, setBdDataTemplate, htmlFileContent, cssFileContent, jsFileContent} = useContext(txtDataCT);
     // const isInitialMount = react.useRef(true);
     
     useEffect(() => {
@@ -27,7 +27,12 @@ export default function Body({txtAreaId}){
    /// console.log(htmlDataTemplate);
     return(
         <div className = "">
-            <textarea value = {coding} onChange= {({target : {value}}) => {console.log('act');setCoding(value)}} id = {txtAreaId} className = "m-2 texto"></textarea>
+            <textarea value = 
+
+            {(coding === "" && txtAreaId === 'htmlTxt')? htmlFileContent : (coding === "" && txtAreaId === 'cssTxt')? cssFileContent:(coding === "" && txtAreaId === 'jsTxt')? jsFileContent: coding} 
+            onChange= {({target : {value}}) => {console.log('act');setCoding(value)}} id = {txtAreaId} className = "m-2 texto">
+
+            </textarea>
         </div>
     )
 }

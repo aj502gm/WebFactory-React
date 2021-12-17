@@ -23,12 +23,12 @@ export const TxtDataProvider = (props) =>{
     const [cssCheckBox, setCssCheckBox] = useState(false);
     const [jsCheckBox, setJsCheckBox] = useState(false);
    
-    const prueba = () => {
-        console.log("Funciona funciona");
-        return "exito";
-    }
+    const [htmlFileContent, setHtmlFileContent] = useState("");
+    const [cssFileContent, setCssFileContent] = useState("");
+    const [jsFileContent, setJsFileContent] = useState("");
+
     return(
-        <txtDataCT.Provider value = {{htmlDataTemplate, cssDataTemplate, jsDataTemplate, bdDataTemplate, setHtmlData, setCssData, setJsData, setBdDataTemplate,htmlCheckBox,setHtmlCheckBox,cssCheckBox,setCssCheckBox,jsCheckBox,setJsCheckBox}}>
+        <txtDataCT.Provider value = {{htmlDataTemplate, cssDataTemplate, jsDataTemplate, bdDataTemplate, setHtmlData, setCssData, setJsData, setBdDataTemplate,htmlCheckBox,setHtmlCheckBox,cssCheckBox,setCssCheckBox,jsCheckBox,setJsCheckBox,htmlFileContent, setHtmlFileContent,cssFileContent, setCssFileContent,jsFileContent, setJsFileContent}}>
             {props.children}
         </txtDataCT.Provider>
     )

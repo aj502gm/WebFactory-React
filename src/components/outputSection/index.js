@@ -1,16 +1,22 @@
 import { useContext, useEffect, useState } from "react";
+import {createPortal} from "react-dom";
 import { txtDataCT } from "../../context/txtAreaData/TxtDataCT";
-export default function OutPutTxt(){
+export default function OutPutTxt({children, ...props}){
     const { htmlDataTemplate } = useContext(txtDataCT);
-    const htmlprueba = `<!doctype html>
-    <html lang="en"> 
-        <head> 
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <style type="text/css"></style>
-        </head>
-        <body><h1>hola</h1><script></script></body>
-    </html>;`
+    const [contentRef, setContentRef] = useState(null);
+
+    const mountNode =
+    contentRef?.contentWindow?.document?.body
+
+    // const htmlprueba = `<!doctype html>
+    // <html lang="en"> 
+    //     <head> 
+    //         <meta charset="utf-8">
+    //         <meta name="viewport" content="width=device-width, initial-scale=1">
+    //         <style type="text/css"></style>
+    //     </head>
+    //     <body><h1>HOJFDSHFJSDAHFJDSHFJSDHAJFHDSAJF</h1><script></script></body>
+    // </html>;`
     //const [innertHtmlData, setInnerHtmlData] = useState({__html: htmlDataTemplate});
     // useEffect(() => {
     //     const node = document.querySelector('#outputTxt');
@@ -20,9 +26,9 @@ export default function OutPutTxt(){
     //     console.log()
     // });
     return (
-        <div className="outputBox border black-success border-5 m-1" id = "outDiv"  dangerouslySetInnerHTML = {{__html: htmlDataTemplate}}>
-           
-        </div>
+        <iframe {...props} ref = {setContentRef} className="outputBox border black-success border-5 m-1" id = "outDiv">
+            {mountNode && createPortal(children, mountNode)}
+        </iframe>
     )
 }
 
